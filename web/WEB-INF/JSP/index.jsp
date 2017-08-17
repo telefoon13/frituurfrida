@@ -9,7 +9,6 @@
 </head>
 <body>
 <h1>Frituur Frida</h1>
-<img src="../../images/mayonaise.png" alt="Mayo" class="fullwidth">
 <h2>${openGesloten}</h2>
 </body>
 </html>

@@ -1,5 +1,7 @@
 package be.vdab.Servlet;
 
+import be.vdab.enteties.OpenGesloten;
+
 import javax.servlet.http.HttpServlet;
 import java.io.IOException;
 import java.time.LocalDate;
@@ -12,7 +14,7 @@ public class IndexServlet extends HttpServlet {
     protected void doGet(javax.servlet.http.HttpServletRequest request, javax.servlet.http.HttpServletResponse response) throws javax.servlet.ServletException, IOException {
 
         int dag = LocalDate.now().getDayOfWeek().getValue();
-        request.setAttribute("openGesloten", dag == 1 || dag == 4 ? "Onze excuses, wij zijn vandaag gesloten" : "U bent van harte welkom, vandaag zijn wij OPEN");
+        request.setAttribute("openGesloten", new OpenGesloten());
         request.getRequestDispatcher(VIEW).forward(request,response);
     }
 }

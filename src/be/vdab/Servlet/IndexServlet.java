@@ -1,10 +1,11 @@
 package be.vdab.Servlet;
 
+import be.vdab.enteties.Adres;
+import be.vdab.enteties.Gemeente;
 import be.vdab.enteties.OpenGesloten;
 
 import javax.servlet.http.HttpServlet;
 import java.io.IOException;
-import java.time.LocalDate;
 
 public class IndexServlet extends HttpServlet {
     private static final long serialVersionUID =1L;
@@ -13,8 +14,8 @@ public class IndexServlet extends HttpServlet {
     @Override
     protected void doGet(javax.servlet.http.HttpServletRequest request, javax.servlet.http.HttpServletResponse response) throws javax.servlet.ServletException, IOException {
 
-        int dag = LocalDate.now().getDayOfWeek().getValue();
         request.setAttribute("openGesloten", new OpenGesloten());
+        request.setAttribute("adres", new Adres("Gavermolenstraat","71", new Gemeente("Belsele",9111)));
         request.getRequestDispatcher(VIEW).forward(request,response);
     }
 }

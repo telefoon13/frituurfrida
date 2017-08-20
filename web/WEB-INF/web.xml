@@ -4,18 +4,9 @@
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
          version="3.1">
 
-    <servlet>
-        <servlet-name>IndexServlet</servlet-name>
-        <servlet-class>be.vdab.Servlet.IndexServlet</servlet-class>
-        <init-param>
-            <param-name>helpDeskTelefoon</param-name>
-            <param-value>09/222.61.72</param-value>
-        </init-param>
-    </servlet>
-
-    <servlet-mapping>
-        <servlet-name>IndexServlet</servlet-name>
-        <url-pattern>/index.htm</url-pattern>
-    </servlet-mapping>
+    <context-param>
+        <param-name>helpDeskTelefoon</param-name>
+        <param-value>09/222.61.72</param-value>
+    </context-param>
 
 </web-app>

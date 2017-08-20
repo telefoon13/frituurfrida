@@ -4,10 +4,13 @@ import be.vdab.enteties.Adres;
 import be.vdab.enteties.Gemeente;
 import be.vdab.enteties.OpenGesloten;
 
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import java.io.IOException;
 
+@WebServlet(urlPatterns = "/index.htm", name = "IndexServlet")
 public class IndexServlet extends HttpServlet {
+
     private static final long serialVersionUID =1L;
     private static final String VIEW = "/WEB-INF/JSP/index.jsp";
 
@@ -18,7 +21,7 @@ public class IndexServlet extends HttpServlet {
 
         request.setAttribute("adres", new Adres("Gavermolenstraat","71", new Gemeente("Belsele",9111)));
 
-        request.setAttribute("helpDeskTelefoon", this.getInitParameter("helpDeskTelefoon"));
+		request.setAttribute("helpDeskTelefoon", this.getServletContext().getInitParameter("helpDeskTelefoon"));
 
         request.getRequestDispatcher(VIEW).forward(request,response);
     }

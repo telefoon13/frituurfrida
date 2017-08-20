@@ -12,7 +12,7 @@ import java.util.List;
 
 import static java.util.Arrays.*;
 
-@WebServlet("/sauzen.htm")
+@WebServlet(urlPatterns = "/sauzen.htm", name = "SausServlet")
 public class SausServlet extends HttpServlet {
 
 	private static final long serialVersionUID =1L;

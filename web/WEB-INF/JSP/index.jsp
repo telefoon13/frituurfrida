@@ -1,14 +1,13 @@
 <jsp:useBean id="adres" scope="request" type="be.vdab.enteties.Adres"/>
 <jsp:useBean id="openGesloten" scope="request" type="be.vdab.enteties.OpenGesloten"/>
-
 <%@ page contentType="text/html;charset=UTF-8"%>
+<%@taglib prefix='c' uri='http://java.sun.com/jsp/jstl/core' %>
 <!doctype html>
 <html lang="nl">
 <head>
-    <title>Frituur Frida</title>
-    <link rel="icon" href="../../images/favicon.ico">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <link rel="stylesheet" href="../../style/default.css">
+    <c:import url="/WEB-INF/JSP/head.jsp">
+        <c:param name="title" value="Frituur Frida"/>
+    </c:import>
 </head>
 <body>
 <h1>Frituur Frida</h1>

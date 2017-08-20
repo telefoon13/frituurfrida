@@ -15,7 +15,11 @@ public class IndexServlet extends HttpServlet {
     protected void doGet(javax.servlet.http.HttpServletRequest request, javax.servlet.http.HttpServletResponse response) throws javax.servlet.ServletException, IOException {
 
         request.setAttribute("openGesloten", new OpenGesloten());
+
         request.setAttribute("adres", new Adres("Gavermolenstraat","71", new Gemeente("Belsele",9111)));
+
+        request.setAttribute("helpDeskTelefoon", this.getInitParameter("helpDeskTelefoon"));
+
         request.getRequestDispatcher(VIEW).forward(request,response);
     }
 }

@@ -17,5 +17,8 @@
 <h3>Adres</h3>
 ${adres.straat} ${adres.huisNr}<br>
 ${adres.gemeente.postCode} ${adres.gemeente.naam}
+<footer style="text-align: center">
+Helpdesk : ${helpDeskTelefoon}
+</footer>
 </body>
 </html>

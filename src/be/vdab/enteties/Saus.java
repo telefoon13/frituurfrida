@@ -50,4 +50,5 @@ public class Saus {
 	public static boolean isNaamValid(String naam) {
 		return naam != null && !naam.isEmpty();
 	}
+
 }

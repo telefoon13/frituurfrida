@@ -10,6 +10,7 @@
     </c:import>
 </head>
 <body>
+<c:import url="/WEB-INF/JSP/menu.jsp"/>
 <h1>Frituur Frida</h1>
 <h2>Vandaag zijn we </h2>
 <img src="../../images/${openGesloten}.png" alt="${openGesloten}">

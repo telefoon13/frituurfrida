@@ -12,7 +12,7 @@
     <c:forEach var="saus" items="${sauzen}">
         <h2>${saus.naam}</h2>
         <img src="../../images/${saus.naam}.png" alt="${saus.naam}">
-        Ingrediënten :
+        <b>Ingrediënten :</b>
         <c:forEach var="ingredient" items="${saus.ingredienten}" varStatus="status">
             ${ingredient}
             <c:if test="${not status.last}">

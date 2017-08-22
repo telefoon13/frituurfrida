@@ -7,7 +7,7 @@
         <c:param name="title" value="Frituur Frida"/>
     </c:import>
 </head>
-<body>
+<body  class="${cookie.thema.value}">
 
 <c:import url="/WEB-INF/JSP/menu.jsp"/>
 

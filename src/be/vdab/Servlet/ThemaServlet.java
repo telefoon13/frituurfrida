@@ -23,7 +23,7 @@ public class ThemaServlet extends HttpServlet {
 		Cookie cookie = new Cookie("thema", URLEncoder.encode(request.getParameter("themaKnop"), "UTF-8"));
 		cookie.setMaxAge(COOCKIE_MAX_LEEFTIJD);
 		response.addCookie(cookie);
-		response.sendRedirect(request.getRequestURI());
+		response.sendRedirect(response.encodeRedirectURL(request.getRequestURI()));
 
 	}
 

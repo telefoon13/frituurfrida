@@ -28,6 +28,7 @@ public class ZoekDeFrietServlet extends HttpServlet {
 		//Er word op een deur geduwd
 		if(request.getParameter("volgnummer")!= null){
 
+			//Set met nummers van ingeduwde deuren maken en in session zetten
 			@SuppressWarnings("uncheked")
 			Set<Integer> geduwdeDeuren = (Set<Integer>) session2.getAttribute(GEDUWDEDEUREN);
 			if (geduwdeDeuren == null) {
@@ -36,6 +37,7 @@ public class ZoekDeFrietServlet extends HttpServlet {
 			geduwdeDeuren.add(Integer.valueOf(request.getParameter("volgnummer")));
 			session2.setAttribute(GEDUWDEDEUREN, geduwdeDeuren);
 
+			//Indien nog geen winnend nummer een genereren
 			if(request.getSession(false).getAttribute("gevonden") == null){
 				Random rand = new Random();
 				int winner = rand.nextInt(AANTAL_DEUREN)+1;
@@ -59,8 +61,7 @@ public class ZoekDeFrietServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-
-
+		//Aantal deuren meegeven aan JSP
 		request.setAttribute("AANTAL_DEUREN", AANTAL_DEUREN);
 
 		//Redirect

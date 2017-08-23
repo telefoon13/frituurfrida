@@ -8,12 +8,9 @@
     </c:import>
 </head>
 <body  class="${cookie.thema.value}">
-
 <c:import url="/WEB-INF/JSP/menu.jsp"/>
-
 <h1>Zoek de friet</h1>
 <form method="post" id="zoekdefrietForm">
-
     <c:forEach begin="1" end="${AANTAL_DEUREN}" varStatus="nummer">
         <button name="volgnummer" value="${nummer.index}">
             <c:choose>
@@ -31,8 +28,6 @@
         </button>
     </c:forEach>
     <input type="submit" value="Nieuw Spel" id="nieuwSpel" name="nieuwSpel">
-
 </form>
-
 </body>
 </html>

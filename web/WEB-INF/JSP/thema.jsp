@@ -13,6 +13,7 @@
 
 <h1>Thema kiezen</h1>
 <form method="post" name="themaForm">
+    <input type="submit" name="themaKnop" value="standaard thema">
     <input type="submit" name="themaKnop" value="roze">
     <input type="submit" name="themaKnop" value="rood">
     <input type="submit" name="themaKnop" value="blauw">

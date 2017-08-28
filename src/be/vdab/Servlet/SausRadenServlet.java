@@ -38,7 +38,7 @@ public class SausRadenServlet extends HttpServlet {
 				session.setAttribute(SPEL,spel);
 			}
 		}
-		//Redirect
+		//Redirecta
 		response.sendRedirect(response.encodeRedirectURL(request.getRequestURI()));
 	}
 

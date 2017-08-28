@@ -9,6 +9,7 @@
             <li><a href="<c:url value="/thema.htm"/>">Thema kiezen</a></li>
             <li><a href="<c:url value="/zoekdefriet.htm"/>">Zoek de friet</a></li>
             <li><a href="<c:url value="/sausraden.htm"/>">Saus raden</a></li>
+            <li><a href="<c:url value="/statistiek.htm"/>">Statistiek</a></li>
         </ul>
     </nav>
 </header>

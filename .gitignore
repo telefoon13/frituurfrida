@@ -24,7 +24,6 @@
 hs_err_pid*
 
 .gitignore
-.idea/fileTemplates/
-.idea/inspectionProfiles/
-.idea/workspace.xml
+.idea/
 out/
+/frituurfrida.iml

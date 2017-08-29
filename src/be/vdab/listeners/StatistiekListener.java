@@ -22,13 +22,15 @@ public class StatistiekListener implements ServletContextListener, ServletReques
 	// -------------------------------------------------------
 	// ServletContextListener implementation
 	// -------------------------------------------------------
+
 	@Override
 	public void contextInitialized(ServletContextEvent sce) {
+
 	  /* This method is called when the servlet context is
          initialized(when the Web application is deployed). 
          You can initialize servlet context related data here.
       */
-	  sce.getServletContext().setAttribute(STATISTIEK, new ConcurrentHashMap<String,AtomicInteger>());
+	  //sce.getServletContext().setAttribute(STATISTIEK, new ConcurrentHashMap<String,AtomicInteger>());
 	}
 
 	@Override
@@ -41,7 +43,8 @@ public class StatistiekListener implements ServletContextListener, ServletReques
 
 	@Override
 	public void requestInitialized(ServletRequestEvent sre){
-		if (sre.getServletRequest() instanceof HttpServletRequest){
+
+		/*if (sre.getServletRequest() instanceof HttpServletRequest){
 			HttpServletRequest request = (HttpServletRequest) sre.getServletRequest();
 			String url = request.getRequestURI();
 			boolean verwerkRequest = true;
@@ -64,7 +67,7 @@ public class StatistiekListener implements ServletContextListener, ServletReques
 					aantalReedsAanwezig.incrementAndGet();
 				}
 			}
-		}
+		}*/
 	}
 
 	@Override

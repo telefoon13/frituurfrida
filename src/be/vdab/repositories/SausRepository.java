@@ -2,36 +2,88 @@ package be.vdab.repositories;
 
 import be.vdab.enteties.Saus;
 
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
+
 import java.util.Set;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.stream.Collectors;
 
-import static java.util.Arrays.*;
+public class SausRepository extends AbstractRepository {
 
-public class SausRepository {
+	private static final String FIND_ALL =
+			"select sauzen.id, sauzen.naam as sausnaam," +
+					" ingredienten.naam as ingredientnaam" +
+					" from sauzen left join sauzeningredienten" +
+					" on sauzen.id=sauzeningredienten.sausid" +
+					" left join ingredienten " +
+					" on sauzeningredienten.ingredientenid=ingredienten.id" +
+					" order by sauzen.naam";
 
-	private static final Map<Long, Saus> SAUZEN = new ConcurrentHashMap<>();
+	private static final String FIND_BY_INGREDIENT =
+			"select sauzen.id, sauzen.naam as sausnaam" +
+					" from sauzen inner join sauzeningredienten " +
+					" on sauzen.id=sauzeningredienten.sausid" +
+					" inner join ingredienten" +
+					" on sauzeningredienten.ingredientenid=ingredienten.id" +
+					" where ingredienten.naam = ?" + " order by sauzen.naam";
 
-	static {
-		SAUZEN.put(1L, new Saus(1L,"Cocktail", asList("Mayonaise", "Cognac", "Ketchup")));
-		SAUZEN.put(2L, new Saus(2L,"Mayonaise", asList("Ei", "Mosterd", "Olie")));
-		SAUZEN.put(3L, new Saus(3L,"Mosterd", asList("Azijn", "Mosterd", "Witte Wijn")));
-		SAUZEN.put(4L, new Saus(4L,"Tartare", asList("Mayonaise", "Agurk", "Tabasco")));
-		SAUZEN.put(5L, new Saus(5L,"Vinaigrette", asList("Azijn", "Mosterd", "Olijfolie")));
-	}
+	private static final String DELETE = "delete from sauzen where id in (";
 
 	public List<Saus> findAll() {
-		return new ArrayList<>(SAUZEN.values());
+		try(Connection connection = dataSource.getConnection();
+			Statement statement = connection.createStatement();
+			ResultSet resultSet = statement.executeQuery(FIND_ALL)) {
+			List<Saus> sauzen = new ArrayList<>();
+			for (long vorigeId = 0; resultSet.next();) {
+				long id = resultSet.getLong("id");
+				if (id != vorigeId) {
+					sauzen.add(resultSetRijNaarSausZonderIngredienten(resultSet));
+					vorigeId = id;
+				}
+				sauzen.get(sauzen.size() - 1).addIngredient(
+						resultSet.getString("ingredientnaam"));
+			}
+			return sauzen;
+		} catch (SQLException ex) {
+			throw new RepositoryException(ex);
+		}
 	}
-
 	public List<Saus> findByIngredient(String ingredient) {
-		return SAUZEN.values().stream().filter(saus -> saus.getIngredienten().contains(ingredient)).collect(Collectors.toList());
+		try (Connection connection = dataSource.getConnection();
+			 PreparedStatement statement = connection.prepareStatement(
+					 FIND_BY_INGREDIENT)) {
+			statement.setString(1, ingredient);
+			List<Saus> sauzen = new ArrayList<>();
+			try (ResultSet resultSet = statement.executeQuery()) {
+				while (resultSet.next()) {
+					sauzen.add(resultSetRijNaarSausZonderIngredienten(resultSet));
+				}
+				return sauzen;
+			}
+		} catch (SQLException ex) {
+			throw new RepositoryException(ex);
+		}
 	}
-
-	public void delete(Set<Long> idStream){
-		idStream.stream().forEach(id ->SAUZEN.remove(id));
+	private Saus resultSetRijNaarSausZonderIngredienten(ResultSet resultSet)
+			throws SQLException {
+		return new Saus(resultSet.getLong("id"), resultSet.getString("sausnaam"),
+				new ArrayList<String>());
+	}
+	public void delete(Set<Long> ids) {
+		StringBuilder sql = new StringBuilder(DELETE);
+		ids.stream().forEach(id -> sql.append("?,"));
+		sql.deleteCharAt(sql.length() - 1);
+		sql.append(')');
+		try (Connection connection = dataSource.getConnection();
+			 PreparedStatement statement =
+					 connection.prepareStatement(sql.toString())) {
+			int index = 1;
+			for (long id : ids) {
+				statement.setLong(index++, id);
+			}
+			statement.executeUpdate();
+		} catch (SQLException ex) {
+			throw new RepositoryException(ex);
+		}
 	}
 }

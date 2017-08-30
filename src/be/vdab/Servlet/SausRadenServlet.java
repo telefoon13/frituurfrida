@@ -4,6 +4,7 @@ import be.vdab.enteties.Saus;
 import be.vdab.enteties.SausRaden;
 import be.vdab.repositories.SausRepository;
 
+import javax.annotation.Resource;
 import javax.jms.Session;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -11,6 +12,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.sql.DataSource;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -21,8 +23,13 @@ public class SausRadenServlet extends HttpServlet {
 
 	private static final long serialVersionUID =1L;
 	private static final String VIEW = "/WEB-INF/JSP/sausraden.jsp";
-	private final SausRepository sausRepository = new SausRepository();
+	private final transient SausRepository sausRepository = new SausRepository();
 	private static final String SPEL = "sausRaden";
+
+	@Resource(name = SausRepository.JNDI_NAME)
+	public void setDataSource(DataSource dataSource) {
+		sausRepository.setDataSource(dataSource);
+	}
 
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

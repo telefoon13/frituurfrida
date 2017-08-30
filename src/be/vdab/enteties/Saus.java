@@ -51,4 +51,7 @@ public class Saus {
 		return naam != null && !naam.isEmpty();
 	}
 
+	public void addIngredient(String ingredient) {
+		ingredienten.add(ingredient);
+	}
 }

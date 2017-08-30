@@ -7,6 +7,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import java.util.Set;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class SausRepository extends AbstractRepository {
 
@@ -28,6 +30,7 @@ public class SausRepository extends AbstractRepository {
 					" where ingredienten.naam = ?" + " order by sauzen.naam";
 
 	private static final String DELETE = "delete from sauzen where id in (";
+	private final static Logger LOGGER = Logger.getLogger(SausRepository.class.getName());
 
 	public List<Saus> findAll() {
 		try(Connection connection = dataSource.getConnection();
@@ -45,6 +48,7 @@ public class SausRepository extends AbstractRepository {
 			}
 			return sauzen;
 		} catch (SQLException ex) {
+			LOGGER.log(Level.SEVERE,"DB probleem",ex);
 			throw new RepositoryException(ex);
 		}
 	}
@@ -61,6 +65,7 @@ public class SausRepository extends AbstractRepository {
 				return sauzen;
 			}
 		} catch (SQLException ex) {
+			LOGGER.log(Level.SEVERE,"DB probleem",ex);
 			throw new RepositoryException(ex);
 		}
 	}
@@ -83,6 +88,7 @@ public class SausRepository extends AbstractRepository {
 			}
 			statement.executeUpdate();
 		} catch (SQLException ex) {
+			LOGGER.log(Level.SEVERE,"DB probleem",ex);
 			throw new RepositoryException(ex);
 		}
 	}

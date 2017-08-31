@@ -121,3 +121,10 @@ ul.zebra li:nth-child(odd):hover, ul.zebra li:nth-child(even):hover {
     background-color: black;
     color: white;
 }
+.talen{
+margin-top: 15px;
+}
+.talen img{
+    border: 0;
+    margin-left: 15px;
+}

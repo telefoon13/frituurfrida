@@ -1,5 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8"%>
 <%@taglib prefix='c' uri='http://java.sun.com/jsp/jstl/core' %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt" %>
+<fmt:setBundle basename="teksten"/>
 <!doctype html>
 <html lang="nl">
 <head>
@@ -11,7 +13,7 @@
 
 <c:import url="/WEB-INF/JSP/menu.jsp"/>
 
-<h1>Sauzen</h1>
+<h1><fmt:message key="sauzen"/></h1>
 <form method="post" action="/sauzen/verwijderen.htm" name="verwijderForm">
 
     <c:forEach var="saus" items="${sauzen}">
@@ -19,7 +21,7 @@
             <input type="checkbox" name="id" value="${saus.nummer}">${saus.naam}
         </label></h2>
         <img src="../../images/${saus.naam}.png" alt="${saus.naam}">
-        <b>Ingrediënten :</b>
+        <b><fmt:message key="ingredienten"/> :</b>
         <c:forEach var="ingredient" items="${saus.ingredienten}" varStatus="status">
             ${ingredient}
             <c:if test="${not status.last}">
@@ -27,7 +29,7 @@
             </c:if>
         </c:forEach>
     </c:forEach>
-    <div><input type="submit" name="verwijderKnop" id="verwijderKnop" value="Verwijder aangevinkte sauzen."></div>
+    <div><input type="submit" name="verwijderKnop" id="verwijderKnop" value="<fmt:message key="verwijderSaus"/>."></div>
 </form>
 </body>
 </html>

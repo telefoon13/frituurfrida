@@ -1,5 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8"%>
 <%@taglib prefix='c' uri='http://java.sun.com/jsp/jstl/core' %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt" %>
+<fmt:setBundle basename="teksten"/>
 <!doctype html>
 <html lang="nl">
 <head>
@@ -14,13 +16,13 @@
 </head>
 <body  class="${cookie.thema.value}">
 <c:import url="/WEB-INF/JSP/menu.jsp"/>
-<h1>Statistieken</h1>
+<h1><fmt:message key="statistiek"/></h1>
 <c:if test="${not empty statistiek}">
     <table>
         <thead>
             <tr>
                 <th>URL</th>
-                <th>Aantal bezoekers</th>
+                <th><fmt:message key="aantalBezoekers"/></th>
             </tr>
         </thead>
         <tbody>

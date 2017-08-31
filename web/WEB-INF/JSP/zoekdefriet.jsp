@@ -1,5 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8"%>
 <%@taglib prefix='c' uri='http://java.sun.com/jsp/jstl/core' %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt" %>
+<fmt:setBundle basename="teksten"/>
 <!doctype html>
 <html lang="nl">
 <head>
@@ -9,7 +11,7 @@
 </head>
 <body  class="${cookie.thema.value}">
 <c:import url="/WEB-INF/JSP/menu.jsp"/>
-<h1>Zoek de friet</h1>
+<h1><fmt:message key="zoekDeFriet"/></h1>
 <form method="post" id="zoekdefrietForm">
     <c:forEach begin="1" end="${AANTAL_DEUREN}" varStatus="nummer">
         <button name="volgnummer" value="${nummer.index}">
@@ -27,7 +29,7 @@
             </c:choose>
         </button>
     </c:forEach>
-    <input type="submit" value="Nieuw Spel" id="nieuwSpel" name="nieuwSpel">
+    <input type="submit" value="<fmt:message key="nieuwSpel"/>" id="nieuwSpel" name="nieuwSpel">
 </form>
 </body>
 </html>

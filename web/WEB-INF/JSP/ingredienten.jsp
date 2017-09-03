@@ -1,16 +1,19 @@
 <%@ page contentType="text/html;charset=UTF-8"%>
 <%@taglib prefix='c' uri='http://java.sun.com/jsp/jstl/core' %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt" %>
+<%@taglib prefix='vdab' uri='http://vdab.be/tags' %>
 <fmt:setBundle basename="teksten"/>
+
 <!doctype html>
 <html lang="nl">
 <head>
-    <c:import url="/WEB-INF/JSP/head.jsp">
-        <c:param name="title" value="Frituur Frida"/>
-    </c:import>
+    <vdab:head title="Frituur Frida - Ingredienten"/>
 </head>
 <body  class="${cookie.thema.value}">
-<c:import url="/WEB-INF/JSP/menu.jsp"/>
+<vdab:taalkeuze/>
+<vdab:menu/>
+
+
 <h1><fmt:message key="ingredienten"/></h1>
 <form>
     <label><fmt:message key="ingredient"/> : <span>${fouten}</span>
@@ -28,5 +31,7 @@
 <c:if test="${empty sauzenMetIngredient and empty fouten}">
     <fmt:message key="geenSausGevonden"/>.
 </c:if>
+
+
 </body>
 </html>

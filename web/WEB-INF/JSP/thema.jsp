@@ -1,17 +1,17 @@
 <%@ page contentType="text/html;charset=UTF-8"%>
 <%@taglib prefix='c' uri='http://java.sun.com/jsp/jstl/core' %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt" %>
+<%@taglib prefix='vdab' uri='http://vdab.be/tags' %>
 <fmt:setBundle basename="teksten"/>
+
 <!doctype html>
 <html lang="nl">
 <head>
-    <c:import url="/WEB-INF/JSP/head.jsp">
-        <c:param name="title" value="Frituur Frida"/>
-    </c:import>
+    <vdab:head title="Frituur Frida - Thema kiezen"/>
 </head>
-<body class="${cookie.thema.value}">
-
-<c:import url="/WEB-INF/JSP/menu.jsp"/>
+<body  class="${cookie.thema.value}">
+<vdab:taalkeuze/>
+<vdab:menu/>
 
 <h1><fmt:message key="themaKiezen"/></h1>
 <form method="post" name="themaForm">

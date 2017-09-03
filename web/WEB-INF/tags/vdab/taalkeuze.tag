@@ -1,4 +1,4 @@
-<%@page contentType='text/html' pageEncoding='UTF-8' %>
+<%@tag description='taalkeuze' pageEncoding='UTF-8' %>
 <%@taglib prefix='c' uri='http://java.sun.com/jsp/jstl/core' %>
 
 <c:set value='${requestScope["javax.servlet.forward.request_uri"]}' var='redirectURL'/>
@@ -21,7 +21,7 @@
     <c:param name='redirectURL' value='${redirectURL}'/>
 </c:url>
 <div class="talen">
-<a href='${nlBEURL}'><img src="../../images/BE.png"></a>
-<a href='${enUSURL}'><img src="../../images/US.png"></a>
-<a href='${frFRURL}'><img src="../../images/FR.png"></a>
+    <a href='${nlBEURL}'><img src="../../images/BE.png"></a>
+    <a href='${enUSURL}'><img src="../../images/US.png"></a>
+    <a href='${frFRURL}'><img src="../../images/FR.png"></a>
 </div>

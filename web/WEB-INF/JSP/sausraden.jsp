@@ -1,15 +1,18 @@
 <%@ page contentType="text/html;charset=UTF-8"%>
 <%@taglib prefix='c' uri='http://java.sun.com/jsp/jstl/core' %>
 <!-- Geen vertaling aangezien de sauzen DB in het nederlands is -->
+<%@taglib prefix='vdab' uri='http://vdab.be/tags' %>
+
 <!doctype html>
 <html lang="nl">
 <head>
-    <c:import url="/WEB-INF/JSP/head.jsp">
-        <c:param name="title" value="Frituur Frida"/>
-    </c:import>
+    <vdab:head title="Frituur Frida - Saus raden"/>
 </head>
 <body  class="${cookie.thema.value}">
-<c:import url="/WEB-INF/JSP/menu.jsp"/>
+<vdab:taalkeuze/>
+<vdab:menu/>
+
+
 <h1>Saus raden</h1>
 
 <c:choose>
@@ -42,6 +45,7 @@
 </form>
 
 <img src="<c:url value="/images/${sausRaden.verkeerdeBeurten}.png" />" alt="${sausRaden.verkeerdeBeurten} verkeerde beurten">
+
 
 </body>
 </html>

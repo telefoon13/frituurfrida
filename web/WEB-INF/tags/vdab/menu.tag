@@ -1,9 +1,8 @@
-<%@page contentType='text/html' pageEncoding='UTF-8' %>
+<%@tag description='menu' pageEncoding='UTF-8' %>
 <%@taglib prefix='c' uri='http://java.sun.com/jsp/jstl/core' %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt" %>
 <fmt:setBundle basename="teksten"/>
 <header>
-    <c:import url="/WEB-INF/JSP/taalkiezen.jsp"/>
     <nav>
         <ul>
             <li><a href="<c:url value="/"/>"><fmt:message key="welkom"/></a></li>

@@ -18,8 +18,7 @@ public class UserRepository extends AbstractRepository {
 			try (ResultSet resultSet = statement.executeQuery()) {
 				if (resultSet.next()) {
 					return new User(resultSet.getLong("id"), resultSet.getString("gebruikersnaam"), resultSet.getString("email"),
-							resultSet.getString("pass"), resultSet.getString("lastIP"),
-							resultSet.getDate("laatsteLogin"));
+							resultSet.getString("pass"), resultSet.getString("laatsteIP"), resultSet.getDate("laatsteLogin"));
 				} else {
 					return null;
 				}

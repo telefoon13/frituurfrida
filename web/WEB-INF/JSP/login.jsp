@@ -16,13 +16,21 @@
 
 
 <h1>${titel}</h1>
-${user.gebruikersnaam}
 <form method="post">
-<label><fmt:message key="gebruikersnaam"/><input name="gebruikersnaam"></label>
-<label><fmt:message key="wachtwoord"/><input type="password" name="password"></label>
-<input type="submit" name="loginKnop" value="${titel}" id="loginKnop">
+    <c:choose>
+        <c:when test="${user.gebruikersnaam ne null}">
+            <input type="submit" name="logoutKnop" value="Logout" id="logoutKnop">
+        </c:when>
+        <c:otherwise>
+            <label><fmt:message key="gebruikersnaam"/>
+                <input name="gebruikersnaam" value="${param.gebruikersnaam}" required autofocus>
+                <span>${naamfout}</span></label>
+            <label><fmt:message key="wachtwoord"/>
+                <input type="password" name="password">
+                <span>${passfout}</span></label>
+            <input type="submit" name="loginKnop" value="${titel}" id="loginKnop">
+        </c:otherwise>
+    </c:choose>
 </form>
-${test}
-
 </body>
 </html>

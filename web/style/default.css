@@ -29,6 +29,7 @@ label span, .fout {
     margin-left: 0.5em;
     padding: 0.5em;
     color: white;
+    display: inline-block;
 }
 
 label span:empty, .fout:empty {
@@ -41,6 +42,7 @@ label span {
 
 label {
     cursor: pointer;
+    display: block;
 }
 
 input {

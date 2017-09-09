@@ -51,3 +51,23 @@ INSERT INTO sauzeningredienten (sausid,ingredientenid) VALUES (4,10);
 INSERT INTO sauzeningredienten (sausid,ingredientenid) VALUES (5,7);
 INSERT INTO sauzeningredienten (sausid,ingredientenid) VALUES (5,5);
 INSERT INTO sauzeningredienten (sausid,ingredientenid) VALUES (5,11);
+
+CREATE TABLE `frituurfrida`.`users` (
+  `id` INT(10) NOT NULL AUTO_INCREMENT,
+  `gebruikersnaam` VARCHAR(45) NOT NULL,
+  `email` VARCHAR(45) NOT NULL,
+  `pass` TEXT NOT NULL,
+  `laatsteIP` VARCHAR(45) NULL,
+  `laatsteLogin` DATETIME NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE INDEX `gebruikersnaam_UNIQUE` (`gebruikersnaam` ASC),
+  UNIQUE INDEX `id_UNIQUE` (`id` ASC),
+  UNIQUE INDEX `email_UNIQUE` (`email` ASC));
+
+CREATE TABLE `frituurfrida`.`gastenboek` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `posterid` INT(10) NOT NULL,
+  `bericht` LONGTEXT NOT NULL,
+  `plaatstijd` DATETIME NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE INDEX `id_UNIQUE` (`id` ASC));

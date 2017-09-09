@@ -1,13 +1,13 @@
-<%@page contentType='text/html' pageEncoding='UTF-8'%>
+<%@ page contentType="text/html;charset=UTF-8"%>
 <%@taglib prefix='c' uri='http://java.sun.com/jsp/jstl/core' %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt" %>
 <%@taglib prefix='vdab' uri='http://vdab.be/tags' %>
 <fmt:setBundle basename="teksten"/>
-<fmt:message key="dataFout" var="titel"/>
+<fmt:message key="gastenboek" var="titel"/>
 
 <!doctype html>
 <html lang="nl">
-<<head>
+<head>
     <vdab:head title="${titel}"/>
 </head>
 <body  class="${cookie.thema.value}">
@@ -15,11 +15,7 @@
 <vdab:menu/>
 
 
-<h1><fmt:message key="dataFout"/> (500)</h1>
-<img src="../../images/datafout.jpg" alt="Data fout">
-<p><fmt:message key="erIsEenDataFou"/></p>
-<div><fmt:message key="helpDesk"/> : ${helpDeskTelefoon}</div>
-
+<h1>${titel}</h1>
 
 </body>
 </html>

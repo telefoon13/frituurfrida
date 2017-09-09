@@ -1,12 +1,14 @@
 <%@ page contentType="text/html;charset=UTF-8"%>
 <%@taglib prefix='c' uri='http://java.sun.com/jsp/jstl/core' %>
 <!-- Geen vertaling aangezien de sauzen DB in het nederlands is -->
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt" %>
 <%@taglib prefix='vdab' uri='http://vdab.be/tags' %>
+<fmt:setBundle basename="teksten"/>
 
 <!doctype html>
 <html lang="nl">
 <head>
-    <vdab:head title="Frituur Frida - Saus raden"/>
+    <vdab:head title="Saus Raden"/>
 </head>
 <body  class="${cookie.thema.value}">
 <vdab:taalkeuze/>
@@ -14,7 +16,7 @@
 
 
 <h1>Saus raden</h1>
-
+<p><fmt:message key="sausRaden"/></p>
 <c:choose>
     <c:when test="${sausRaden.verloren}">
         U bent verloren. De saus was : <c:out value="${sausRaden.saus}"/>

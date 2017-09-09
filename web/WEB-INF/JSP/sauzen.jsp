@@ -3,11 +3,12 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt" %>
 <%@taglib prefix='vdab' uri='http://vdab.be/tags' %>
 <fmt:setBundle basename="teksten"/>
+<fmt:message key="sauzen" var="titel"/>
 
 <!doctype html>
 <html lang="nl">
 <head>
-    <vdab:head title="Frituur Frida - Sauzen"/>
+    <vdab:head title="${titel}"/>
 </head>
 <body  class="${cookie.thema.value}">
 <vdab:taalkeuze/>
@@ -33,6 +34,11 @@
     <div><input type="submit" name="verwijderKnop" id="verwijderKnop" value="<fmt:message key="verwijderSaus"/>."></div>
 </form>
 
+<script language="JavaScript">
+    document.getElementsById(verwijderForm).onSubmit = function () {
+        document.getElementsById(verwijderKnop).disabled = true;
+    }
+</script>
 
 </body>
 </html>

@@ -10,8 +10,11 @@
             <li><a href="<c:url value="/ingredienten.htm"/>"><fmt:message key="ingredienten"/></a></li>
             <li><a href="<c:url value="/thema.htm"/>"><fmt:message key="themaKiezen"/></a></li>
             <li><a href="<c:url value="/zoekdefriet.htm"/>"><fmt:message key="zoekDeFriet"/></a></li>
-            <li><a href="<c:url value="/sausraden.htm"/>"><fmt:message key="sausRaden"/></a></li>
+            <li><a href="<c:url value="/sausraden.htm"/>">Saus raden</a></li>
             <li><a href="<c:url value="/statistiek.htm"/>"><fmt:message key="statistiek"/></a></li>
+            <li><a href="<c:url value="/gastenboek.htm"/>"><fmt:message key="gastenboek"/></a></li>
+            <li><a href="<c:url value="/login.htm"/>"><fmt:message key="login"/></a></li>
+            <li><a href="<c:url value="/registreer.htm"/>"><fmt:message key="registreer"/></a></li>
         </ul>
     </nav>
 </header>

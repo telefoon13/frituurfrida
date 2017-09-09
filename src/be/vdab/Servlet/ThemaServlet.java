@@ -20,7 +20,8 @@ public class ThemaServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		request.setCharacterEncoding("UTF-8");
-		Cookie cookie = new Cookie("thema", URLEncoder.encode(request.getParameter("themaKnop"), "UTF-8"));
+		String kleur = request.getParameter("themaKnop");
+		Cookie cookie = new Cookie("thema", URLEncoder.encode(kleur, "UTF-8"));
 		cookie.setMaxAge(COOCKIE_MAX_LEEFTIJD);
 		response.addCookie(cookie);
 		response.sendRedirect(response.encodeRedirectURL(request.getRequestURI()));

@@ -27,7 +27,7 @@ public class SausRepository extends AbstractRepository {
 					" on sauzen.id=sauzeningredienten.sausid" +
 					" inner join ingredienten" +
 					" on sauzeningredienten.ingredientenid=ingredienten.id" +
-					" where ingredienten.naam = ?" + " order by sauzen.naam";
+					" where ingredienten.naam = ? order by sauzen.naam";
 
 	private static final String DELETE = "delete from sauzen where id in (";
 	private final static Logger LOGGER = Logger.getLogger(SausRepository.class.getName());
@@ -54,8 +54,7 @@ public class SausRepository extends AbstractRepository {
 	}
 	public List<Saus> findByIngredient(String ingredient) {
 		try (Connection connection = dataSource.getConnection();
-			 PreparedStatement statement = connection.prepareStatement(
-					 FIND_BY_INGREDIENT)) {
+			 PreparedStatement statement = connection.prepareStatement(FIND_BY_INGREDIENT)) {
 			statement.setString(1, ingredient);
 			List<Saus> sauzen = new ArrayList<>();
 			try (ResultSet resultSet = statement.executeQuery()) {

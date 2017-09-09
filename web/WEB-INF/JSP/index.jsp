@@ -3,11 +3,11 @@
 <%@taglib prefix='fmt' uri='http://java.sun.com/jsp/jstl/fmt' %>
 <%@taglib prefix='vdab' uri='http://vdab.be/tags' %>
 <fmt:setBundle basename="teksten"/>
-
+<fmt:message key='frituurFrida' var="titel"/>
 <!doctype html>
 <html lang="nl">
 <head>
-<vdab:head title="Frituur Frida - Homepage"/>
+    <vdab:head title="${titel}"/>
 </head>
 <body  class="${cookie.thema.value}">
 <vdab:taalkeuze/>
@@ -28,7 +28,7 @@
 </c:choose>
 
 
-<h1>Frituur Frida</h1>
+<h1><fmt:message key="frituurFrida"/></h1>
 <h2><fmt:message key="vandaagZijnWe"/></h2>
 <img src="../../images/${openGesloten}${extra}.png" alt="${openGesloten}">
 <br>

@@ -8,16 +8,12 @@ public class User {
 	private String gebruikersnaam;
 	private String email;
 	private String pass;
-	private String laatsteIP;
-	private Date laatsteLogin;
 
-	public User(long id,String gebruikersnaam, String email, String pass, String laatsteIP, Date laatsteLogin) {
+	public User(long id,String gebruikersnaam, String email, String pass) {
 		this.id = id;
 		setGebruikersnaam(gebruikersnaam);
 		this.email = email;
 		this.pass = pass;
-		this.laatsteIP = laatsteIP;
-		this.laatsteLogin = laatsteLogin;
 	}
 
 	public long getId() {
@@ -52,21 +48,5 @@ public class User {
 
 	public void setPass(String pass) {
 		this.pass = pass;
-	}
-
-	public String getLaatsteIP() {
-		return laatsteIP;
-	}
-
-	public void setLaatsteIP(String laatsteIP) {
-		this.laatsteIP = laatsteIP;
-	}
-
-	public Date getLaatsteLogin() {
-		return laatsteLogin;
-	}
-
-	public void setLaatsteLogin(Date laatsteLogin) {
-		this.laatsteLogin = laatsteLogin;
 	}
 }

@@ -40,6 +40,8 @@ ${adres.gemeente.postCode} ${adres.gemeente.naam}
 <fmt:message key="helpDesk"/> : ${helpDeskTelefoon}
 </footer>
 
+${user.laatsteLogin}<br>
+${user.laatsteIP}
 
 </body>
 </html>

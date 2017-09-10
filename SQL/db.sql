@@ -57,8 +57,6 @@ CREATE TABLE `frituurfrida`.`users` (
   `gebruikersnaam` VARCHAR(45) NOT NULL,
   `email` VARCHAR(45) NOT NULL,
   `pass` TEXT NOT NULL,
-  `laatsteIP` VARCHAR(45) NULL,
-  `laatsteLogin` DATETIME NULL,
   PRIMARY KEY (`id`),
   UNIQUE INDEX `gebruikersnaam_UNIQUE` (`gebruikersnaam` ASC),
   UNIQUE INDEX `id_UNIQUE` (`id` ASC),
@@ -72,4 +70,4 @@ CREATE TABLE `frituurfrida`.`gastenboek` (
   PRIMARY KEY (`id`),
   UNIQUE INDEX `id_UNIQUE` (`id` ASC));
 
-INSERT INTO users (gebruikersnaam,email,pass) VALUES ("mike", "mike@mikedhoore.be","test")
+INSERT INTO users (gebruikersnaam,email,pass) VALUES ("admin", "mike@mikedhoore.be","b17abf9621c5f04bd5bf8eb0b1a7d732e328dd3f");

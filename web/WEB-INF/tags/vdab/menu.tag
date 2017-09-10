@@ -13,8 +13,15 @@
             <li><a href="<c:url value="/sausraden.htm"/>">Saus raden</a></li>
             <li><a href="<c:url value="/statistiek.htm"/>"><fmt:message key="statistiek"/></a></li>
             <li><a href="<c:url value="/gastenboek.htm"/>"><fmt:message key="gastenboek"/></a></li>
-            <li><a href="<c:url value="/login.htm"/>"><fmt:message key="login"/></a></li>
-            <li><a href="<c:url value="/registreer.htm"/>"><fmt:message key="registreer"/></a></li>
+            <c:choose>
+            <c:when test="${user.gebruikersnaam ne null}">
+                <li><a href="<c:url value="/login.htm?logout=logout"/>"><fmt:message key="logout"/></a></li>
+            </c:when>
+            <c:otherwise>
+                <li><a href="<c:url value="/login.htm"/>"><fmt:message key="login"/></a></li>
+                <li><a href="<c:url value="/registreer.htm"/>"><fmt:message key="registreer"/></a></li>
+            </c:otherwise>
+            </c:choose>
         </ul>
     </nav>
 </header>

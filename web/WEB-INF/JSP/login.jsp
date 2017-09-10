@@ -19,15 +19,15 @@
 <form method="post">
     <c:choose>
         <c:when test="${user.gebruikersnaam ne null}">
-            <input type="submit" name="logoutKnop" value="Logout" id="logoutKnop">
+            <input type="submit" name="logoutKnop" value="<fmt:message key="logout"/>" id="logoutKnop">
         </c:when>
         <c:otherwise>
             <label><fmt:message key="gebruikersnaam"/>
                 <input name="gebruikersnaam" value="${param.gebruikersnaam}" required autofocus>
-                <span>${naamfout}</span></label>
+                <span>${fouten.gebruikersnaam}</span></label>
             <label><fmt:message key="wachtwoord"/>
                 <input type="password" name="password">
-                <span>${passfout}</span></label>
+                <span>${fouten.pass}</span></label>
             <input type="submit" name="loginKnop" value="${titel}" id="loginKnop">
         </c:otherwise>
     </c:choose>

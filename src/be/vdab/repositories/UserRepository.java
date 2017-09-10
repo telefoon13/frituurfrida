@@ -11,6 +11,7 @@ import java.util.logging.Logger;
 public class UserRepository extends AbstractRepository {
 
 	private static final String SELECT_USER = "SELECT * FROM users WHERE gebruikersnaam = ?";
+	private static final String SELECT_USER_BY_EMAIL = "SELECT email FROM users WHERE email = ?";
 	private static final String SIGNUP = "INSERT INTO users (gebruikersnaam,email,pass) VALUES (?, ?, ?)";
 	private final static Logger LOGGER = Logger.getLogger(UserRepository.class.getName());
 	private static final String SALT = "456?Mike.Dhoore?123";
@@ -59,6 +60,23 @@ public class UserRepository extends AbstractRepository {
 								resultSet.getString("email"), resultSet.getString("pass"));
 					} else {
 						return null;
+				}
+			}
+		} catch (SQLException ex) {
+			LOGGER.log(Level.SEVERE,"DB probleem(UserExist)",ex);
+			throw new RepositoryException(ex);
+		}
+	}
+
+	public boolean emailExist(String email){
+		try (Connection connection = dataSource.getConnection();
+			 PreparedStatement statement = connection.prepareStatement(SELECT_USER_BY_EMAIL)) {
+			statement.setString(1, email);
+			try (ResultSet resultSet = statement.executeQuery()) {
+				if (resultSet.next()) {
+					return true;
+				} else {
+					return false;
 				}
 			}
 		} catch (SQLException ex) {

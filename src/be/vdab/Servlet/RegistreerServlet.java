@@ -42,6 +42,7 @@ public class RegistreerServlet extends HttpServlet {
 		String pass = request.getParameter("password");
 		String pass2 = request.getParameter("password2");
 		User userExist = userRepository.userExist(gebruikersnaam);
+		boolean emailExist = userRepository.emailExist(email);
 		Pattern pattern = Pattern.compile(USERNAME_PATTERN);
 		Pattern emailPattern = Pattern.compile(EMAIL_PATTERN, Pattern.CASE_INSENSITIVE);
 		Pattern passPattern = Pattern.compile(PASS_PATTERN);
@@ -64,7 +65,7 @@ public class RegistreerServlet extends HttpServlet {
 		if (!emailPattern.matcher(email).matches()){
 			fouten.put("email", "Dit is geen geldig email adres");
 		}
-		if (userExist.getEmail().equals(email)){
+		if (emailExist){
 			fouten.put("email", "Dit email adres komt al voor in onze database.");
 		}
 

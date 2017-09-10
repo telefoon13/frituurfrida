@@ -39,9 +39,5 @@ ${adres.gemeente.postCode} ${adres.gemeente.naam}
 <footer style="text-align: center">
 <fmt:message key="helpDesk"/> : ${helpDeskTelefoon}
 </footer>
-
-${user.laatsteLogin}<br>
-${user.laatsteIP}
-
 </body>
 </html>

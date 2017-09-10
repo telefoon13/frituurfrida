@@ -5,7 +5,9 @@
 <header>
     <nav>
         <ul>
-            <li><a href="<c:url value="/"/>"><fmt:message key="welkom"/></a></li>
+            <li><a href="<c:url value="/"/>"><fmt:message key="welkom"/><c:if test="${user.gebruikersnaam ne null}">, <b>${user.gebruikersnaam.toUpperCase()}</b>
+                </c:if>
+            </a></li>
             <li><a href="<c:url value="/sauzen.htm"/>"><fmt:message key="sauzen"/></a></li>
             <li><a href="<c:url value="/ingredienten.htm"/>"><fmt:message key="ingredienten"/></a></li>
             <li><a href="<c:url value="/thema.htm"/>"><fmt:message key="themaKiezen"/></a></li>

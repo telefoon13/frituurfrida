@@ -71,3 +71,6 @@ CREATE TABLE `frituurfrida`.`gastenboek` (
   UNIQUE INDEX `id_UNIQUE` (`id` ASC));
 
 INSERT INTO users (gebruikersnaam,email,pass) VALUES ("admin", "mike@mikedhoore.be","b17abf9621c5f04bd5bf8eb0b1a7d732e328dd3f");
+
+INSERT INTO `frituurfrida`.`gastenboek` (`posterid`, `bericht`, `plaatstijd`) VALUES ('1', 'test', '2017-09-10 15:15:15');
+INSERT INTO `frituurfrida`.`gastenboek` (`posterid`, `bericht`, `plaatstijd`) VALUES ('1', 'test2<br>Welkom', '2017-09-09 10:10:12');

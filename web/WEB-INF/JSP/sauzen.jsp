@@ -20,7 +20,10 @@
 
     <c:forEach var="saus" items="${sauzen}">
         <h2><label>
-            <input type="checkbox" name="id" value="${saus.nummer}">${saus.naam}
+            <c:if test="${user.gebruikersnaam eq 'admin'}">
+                <input type="checkbox" name="id" value="${saus.nummer}">
+            </c:if>
+                ${saus.naam}
         </label></h2>
         <img src="../../images/${saus.naam}.png" alt="${saus.naam}">
         <b><fmt:message key="ingredienten"/> :</b>
@@ -31,7 +34,9 @@
             </c:if>
         </c:forEach>
     </c:forEach>
-    <div><input type="submit" name="verwijderKnop" id="verwijderKnop" value="<fmt:message key="verwijderSaus"/>."></div>
+    <c:if test="${user.gebruikersnaam eq 'admin'}">
+        <div><input type="submit" name="verwijderKnop" id="verwijderKnop" value="<fmt:message key="verwijderSaus"/>."></div>
+    </c:if>
 </form>
 
 <script language="JavaScript">

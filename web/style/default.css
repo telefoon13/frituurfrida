@@ -66,7 +66,8 @@ input[type='checkbox'] {
 
 nav ul {
     background-color: red;
-    padding: 0.4em 0;
+    padding: 0.4em;
+    display: inline-block;
 }
 
 nav li {
@@ -76,13 +77,13 @@ nav li {
 nav li a {
     color: white;
     font-weight: bold;
-    padding-left: 0.5em;
     text-decoration: none;
     vertical-align: middle;
+    padding: 0.2em;
 }
 
 nav li a:hover {
-    color: #F7FFCC;
+    color: dodgerblue;
 }
 
 ul.zebra {
@@ -129,4 +130,26 @@ margin-top: 15px;
 .talen img{
     border: 0;
     margin-left: 15px;
+}
+.GB{
+    display: block;
+}
+.naamEnDatum{
+    border: 1px solid black;
+    padding: 0.3em;
+    display: inline-block;
+    margin: 0;
+}
+
+.GBbericht{
+    font-weight: bold;
+    margin: 0;
+    margin-bottom: 1em;
+    border: 1px solid black;
+    padding: 0.5em;
+    display: inline-block;
+}
+.gbLEEG{
+   margin: 0;
+    padding: 0;
 }

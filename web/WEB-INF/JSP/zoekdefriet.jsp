@@ -1,6 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8"%>
 <%@taglib prefix='c' uri='http://java.sun.com/jsp/jstl/core' %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt" %>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt" %>
 <%@taglib prefix='vdab' uri='http://vdab.be/tags' %>
 <fmt:setBundle basename="teksten"/>
 <fmt:message key="zoekDeFriet" var="titel"/>

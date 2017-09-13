@@ -1,7 +1,5 @@
 package be.vdab.enteties;
 
-import java.util.Date;
-
 public class User {
 
 	private long id;
